@@ -22,14 +22,20 @@ def on_key_press(symbol, modifiers):
 	c = randint(3, 20)
 	print c
 	for i in range(c):
-		_r = (a(), a(), a(), a())
-		for p in _r:
+		p1 = (a(), a())
+		p2 = (a(), a())
+		if p1 > p2:
+			p2, p1 = p1, p2
+		for p in p1 + p2:
 			print p,
 		print
-		retas += [_r]
+		retas += [p1 + p2]
 
 on_key_press(0, 0)
 try:
 	pyglet.app.run()
 except:
 	pass
+
+print 0
+
