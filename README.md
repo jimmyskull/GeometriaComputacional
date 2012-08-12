@@ -6,12 +6,12 @@ Ferramentas criadas para a disciplina de Geometria Computacional.
 geraRetas.py
 ------------
 
-    Dependências: python 2 e pyglet.
+Dependências: python 2 e pyglet.
 
-    Script em Python 2 para gerar retas aleatórias. Cada vez que um
+Script em Python 2 para gerar retas aleatórias. Cada vez que um
 caso de teste é criado (gerado um conjunto de retas), uma janela 
 mostra como as retas estão no plano bidimensional.
-    Para cada caso, as coordenadas de cada reta são impressas na
+Para cada caso, as coordenadas de cada reta são impressas na
 saída padrão no seguinte formato:
 
 ```
@@ -36,5 +36,4 @@ python2 gerarRetas.py | tee casosteste.in
 
 Exemplo de saída:
 
-![gerarRetas.py](http://i.imgur.com/EjmoY.png)
 
