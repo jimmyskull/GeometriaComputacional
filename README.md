@@ -36,4 +36,5 @@ python2 gerarRetas.py | tee casosteste.in
 
 Exemplo de saída:
 
+![gerarRetas.py](http://i.imgur.com/EjmoY.png)
 
