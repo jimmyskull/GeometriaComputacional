@@ -1,0 +1,62 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+-leak-check	Makefile	/^	valgrind --leak-check=full .\/FechoConvexo < entrada.in$/;"	m
+CC	Makefile	/^CC=clang$/;"	m
+CFLAGS	Makefile	/^CFLAGS=-Wall$/;"	m
+FECHOCONVEXO_OBJECTS	Makefile	/^FECHOCONVEXO_OBJECTS=fecho.o entrada.o benchmark.o$/;"	m
+Point	geometria.h	/^typedef struct Point2i Point;$/;"	t	typeref:struct:Point2i
+Point2i	geometria.h	/^struct Point2i {$/;"	s
+Point2i::X	geometria.h	/^    int X;$/;"	m	struct:Point2i	access:public
+Point2i::Y	geometria.h	/^    int Y;$/;"	m	struct:Point2i	access:public
+X	geometria.h	/^    int X;$/;"	m	struct:Point2i	access:public
+Y	geometria.h	/^    int Y;$/;"	m	struct:Point2i	access:public
+__BENCHMARK_H__	benchmark.h	2;"	d
+__ENTRADA_H__	entrada.h	2;"	d
+__GEOMETRIA_H__	geometria.h	2;"	d
+area2	geometria.h	/^static inline int area2(const Point a, const Point b, const Point c)$/;"	f	signature:(const Point a, const Point b, const Point c)
+area_poly2	geometria.h	/^static inline int area_poly2(const int n, const Point *polygon)$/;"	f	signature:(const int n, const Point *polygon)
+begin	benchmark.c	/^    double begin;$/;"	m	struct:benchmark	file:	access:public
+benchmark	benchmark.c	/^struct benchmark {$/;"	s	file:
+benchmark::begin	benchmark.c	/^    double begin;$/;"	m	struct:benchmark	file:	access:public
+benchmark::end	benchmark.c	/^    double end;$/;"	m	struct:benchmark	file:	access:public
+between	geometria.h	/^static inline bool between(const Point a, const Point b, const Point c)$/;"	f	signature:(const Point a, const Point b, const Point c)
+bm_finish	benchmark.c	/^void bm_finish(struct benchmark *self)$/;"	f	signature:(struct benchmark *self)
+bm_finish	benchmark.h	/^extern void bm_finish(struct benchmark *);$/;"	p	signature:(struct benchmark *)
+bm_free	benchmark.c	/^void bm_free(struct benchmark **self)$/;"	f	signature:(struct benchmark **self)
+bm_free	benchmark.h	/^extern void bm_free(struct benchmark **);$/;"	p	signature:(struct benchmark **)
+bm_init	benchmark.c	/^void bm_init(struct benchmark **self)$/;"	f	signature:(struct benchmark **self)
+bm_init	benchmark.h	/^extern void bm_init(struct benchmark **);$/;"	p	signature:(struct benchmark **)
+bm_result	benchmark.c	/^double bm_result(const struct benchmark *self)$/;"	f	signature:(const struct benchmark *self)
+bm_result	benchmark.h	/^extern double bm_result(const struct benchmark *);$/;"	p	signature:(const struct benchmark *)
+bm_start	benchmark.c	/^void bm_start(struct benchmark *self)$/;"	f	signature:(struct benchmark *self)
+bm_start	benchmark.h	/^extern void bm_start(struct benchmark *);$/;"	p	signature:(struct benchmark *)
+collinear	geometria.h	/^static inline bool collinear(const Point a, const Point b, const Point c)$/;"	f	signature:(const Point a, const Point b, const Point c)
+diagonal	geometria.h	/^static inline bool diagonal(const int i, const int j, const int n,$/;"	f	signature:(const int i, const int j, const int n, const Point *polygon)
+diagonalie	geometria.h	/^static inline bool diagonalie(const int i, const int j, const int n,$/;"	f	signature:(const int i, const int j, const int n, const Point *polygon)
+end	benchmark.c	/^    double end;$/;"	m	struct:benchmark	file:	access:public
+get_time	benchmark.c	/^static double get_time()$/;"	f	file:
+in_cone	geometria.h	/^static inline bool in_cone(const int i, const int j, const int n,$/;"	f	signature:(const int i, const int j, const int n, const Point *p)
+input	entrada.h	/^struct input {$/;"	s
+input::next	entrada.h	/^    struct input *next;$/;"	m	struct:input	typeref:struct:input::input	access:public
+input::value	entrada.h	/^    Point value;$/;"	m	struct:input	access:public
+input_free	entrada.c	/^void input_free(struct input *input)$/;"	f	signature:(struct input *input)
+input_free	entrada.h	/^extern void input_free(struct input *);$/;"	p	signature:(struct input *)
+input_read	entrada.c	/^struct input *input_read(void)$/;"	f	signature:(void)
+input_read	entrada.h	/^extern struct input *input_read(void);$/;"	p	signature:(void)
+intersect	geometria.h	/^static inline bool intersect(const Point a, const Point b, const Point c,$/;"	f	signature:(const Point a, const Point b, const Point c, const Point d)
+intersect_prop	geometria.h	/^static inline bool intersect_prop(const Point a, const Point b, $/;"	f	signature:(const Point a, const Point b, const Point c, const Point d)
+left	geometria.h	/^static inline bool left(const Point a, const Point b, const Point c)$/;"	f	signature:(const Point a, const Point b, const Point c)
+lefton	geometria.h	/^static inline bool lefton(const Point a, const Point b, const Point c)$/;"	f	signature:(const Point a, const Point b, const Point c)
+main	fecho.c	/^int main()$/;"	f
+next	entrada.h	/^    struct input *next;$/;"	m	struct:input	typeref:struct:input::input	access:public
+on_draw	gerarRetas.py	/^def on_draw():$/;"	f	access:public
+on_key_press	gerarRetas.py	/^def on_key_press(symbol, modifiers):$/;"	f	access:public
+pyglet	gerarRetas.py	/^import pyglet$/;"	i
+randint	gerarRetas.py	/^from random import randint$/;"	i
+retas	gerarRetas.py	/^retas = []$/;"	v
+value	entrada.h	/^    Point value;$/;"	m	struct:input	access:public
+window	gerarRetas.py	/^window = pyglet.window.Window(resizable=True)$/;"	v
