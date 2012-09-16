@@ -22,5 +22,8 @@ extern struct input *input_read(void);
 /* Libera a lista de pontos da memória. */
 extern void input_free(struct input *);
 
+/* Quantidade de elementos na lista. */
+extern long input_size(struct input *);
+
 #endif /* __ENTRADA_H__ */
 

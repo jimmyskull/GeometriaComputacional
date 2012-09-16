@@ -35,3 +35,11 @@ void input_free(struct input *input)
     }
 }
 
+long input_size(struct input *input)
+{
+    long count = 0;
+    while (input != NULL && ++count)
+        input = input->next;
+    return count;
+}
+
