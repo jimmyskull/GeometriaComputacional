@@ -1,5 +1,5 @@
 CC=clang
-CFLAGS=-Wall -Wextra -Werror -g -std=gnu99 -pipe
+CFLAGS=-Wall -Wextra -Werror -g -std=c99 -pipe
 
 OBJECTS=fecho.o entrada.o benchmark.o
 BINARY=./fechoconvexo
