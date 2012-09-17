@@ -1,7 +1,14 @@
-#ifndef _ALGORITMOS_H_
-#define _ALGORITMOS_H_
+#ifndef __ALGORITHM_H__
+#define __ALGORITHM_H__
 
-#include "entrada.h"
+#ifndef NDEBUG
+#  include <stdio.h>
+#  define debug(...) fprintf(stderr, __VA_ARGS__)
+#else
+#  define debug(...)
+#endif
+
+#include "input.h"
 
 /* Todos os algoritmos são chamados passando uma lista
  * encadeada dos elementos da entrada e o inteiro com
@@ -10,5 +17,5 @@
 /* brute_force.c */
 extern void brute_force(struct input *, int);
 
-#endif /* _ALGORITMOS_H_ */
+#endif /* __ALGORITHM_H__ */
 

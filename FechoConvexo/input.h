@@ -1,7 +1,7 @@
-#ifndef __ENTRADA_H__
-#define __ENTRADA_H__
+#ifndef __INPUT_H__
+#define __INPUT_H__
 
-#include "geometria.h"
+#include "geometry.h"
 
 struct input {
     Point value;
@@ -25,5 +25,5 @@ extern void input_free(struct input *);
 /* Quantidade de elementos na lista. */
 extern long input_size(struct input *);
 
-#endif /* __ENTRADA_H__ */
+#endif /* __INPUT_H__ */
 

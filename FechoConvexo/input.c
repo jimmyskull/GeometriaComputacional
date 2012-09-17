@@ -1,7 +1,7 @@
 #include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "entrada.h"
+#include "input.h"
 
 struct input *input_read(void)
 {

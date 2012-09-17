@@ -1,5 +1,5 @@
-#ifndef __GEOMETRIA_H__
-#define __GEOMETRIA_H__
+#ifndef __GEOMETRY_H__
+#define __GEOMETRY_H__
 
 #include <stdbool.h>
 
@@ -9,6 +9,11 @@ struct Point2i {
 };
 
 typedef struct Point2i Point;
+
+static inline bool pointcmp(const Point a, const Point b)
+{
+    return (a.X == b.X) && (a.Y == b.Y);
+}
 
 /** Retorna duas vezes o valor da área do triângulo formado pelos
  * pontos |a|, |b| e |c|. */
@@ -120,5 +125,5 @@ static inline bool diagonal(const int i, const int j, const int n,
     return in_cone(i, j, n, polygon) && diagonalie(i, j, n, polygon);
 }
 
-#endif /* __GEOMETRIA_H__ */
+#endif /* __GEOMETRY_H__ */
 
