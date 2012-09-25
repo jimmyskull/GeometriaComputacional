@@ -15,6 +15,28 @@ static inline bool pointcmp(const Point a, const Point b)
     return (a.X == b.X) && (a.Y == b.Y);
 }
 
+static inline void pointcpy(Point *dest, const Point *source)
+{
+    dest->X = source->X;
+    dest->Y = source->Y;
+}
+
+/* Adiciona o ponto |a| ao conjunto |set| se ele ainda não existe,
+ * onde |size| é a quantidade atual de pontos em |set| e *não* a
+ * capacidade do vetor |set|.  Você deve garantir que haja espaço
+ * suficiente para um novo ponto em |set|. */
+static inline bool point_addtoset(Point *set, int size, const Point a)
+{
+    bool exists = false;
+    int i;
+
+    for (i = 0; !exists && i < size; i++)
+        exists = pointcmp(set[i], a);
+    if (!exists)
+        pointcpy(&set[i], &a);
+    return !exists;
+}
+
 /** Retorna duas vezes o valor da área do triângulo formado pelos
  * pontos |a|, |b| e |c|. */
 static inline int area2(const Point a, const Point b, const Point c)
@@ -124,6 +146,27 @@ static inline bool diagonal(const int i, const int j, const int n,
 {
     return in_cone(i, j, n, polygon) && diagonalie(i, j, n, polygon);
 }
+
+/* Círculo formado por a, b e c.
+ * in_circle == 0  se d está no círculo.
+ * in_circle >  0  se d está fora do círculo.
+ * in_circle <  0  se d está dentro de círculo.
+ */
+static inline int in_circle(const Point a, const Point b, const Point c,
+    const Point d)
+{
+    (void) (a);
+    (void) (b);
+    (void) (c);
+    (void) (d);
+    /*                          |1ax    ay      ax² + ay²|
+     *  in_circle(a,b,c,d) = det|1bx    by      bx² + by²|
+     *                          |1cx    cy      cx² + cy²|
+     *                          |1dx    dy      dx² + dy²|
+     */
+    return 0;
+}
+
 
 #endif /* __GEOMETRY_H__ */
 
