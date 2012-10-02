@@ -19,5 +19,7 @@ extern void brute_force(const struct input *, const int);
 
 extern void brute_force_by_edges(const struct input *, const int);
 
+extern void gift_wrapping(const struct input *, const int);
+
 #endif /* __ALGORITHM_H__ */
 

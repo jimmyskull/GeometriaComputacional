@@ -29,11 +29,8 @@ void brute_force(const struct input *input, const int size)
 
                         for (c = 0; !found && c < dcount; c++)
                             found = pointcmp(discarded[c], l->value);
-                        if (!found) {
-                            discarded[dcount].X = l->value.X;
-                            discarded[dcount].Y = l->value.Y;
-                            dcount++;
-                        }
+                        if (!found) 
+                            discarded[dcount++] = l->value;
                     }
                 } /* l */
             } /* k */
@@ -48,7 +45,7 @@ void brute_force(const struct input *input, const int size)
         for (c = 0; !found && c < dcount; c++)
             found = pointcmp(discarded[c], input->value);
         if (!found) 
-            pointcpy(&hull[chull++], &input->value);
+            hull[chull++] = input->value;
         input = input->next;
     }
 

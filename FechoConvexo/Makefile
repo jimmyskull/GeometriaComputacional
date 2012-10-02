@@ -2,7 +2,7 @@ CC=clang
 CFLAGS=-Wall -Wextra -Werror -g -std=c99 -pipe
 LDFLAGS=-lm
 
-OBJECTS=fecho.o input.o benchmark.o brute_force.o mean.o
+OBJECTS=fecho.o input.o benchmark.o brute_force.o mean.o gift_wrapping.o
 BINARY=./fechoconvexo
 
 default: runValgrind
@@ -28,6 +28,9 @@ benchmark.o: ../benchmark.c ../benchmark.h
 
 brute_force.o: brute_force.c input.h algorithm.h
 	$(CC) $(CFLAGS) -c brute_force.c
+
+gift_wrapping.o: gift_wrapping.c algorithm.h
+	$(CC) $(CFLAGS) -c gift_wrapping.c
 
 mean.o: ../mean.c ../mean.h
 	$(CC) $(CFLAGS) -c ../mean.c

@@ -15,12 +15,6 @@ static inline bool pointcmp(const Point a, const Point b)
     return (a.X == b.X) && (a.Y == b.Y);
 }
 
-static inline void pointcpy(Point *dest, const Point *source)
-{
-    dest->X = source->X;
-    dest->Y = source->Y;
-}
-
 /* Adiciona o ponto |a| ao conjunto |set| se ele ainda não existe,
  * onde |size| é a quantidade atual de pontos em |set| e *não* a
  * capacidade do vetor |set|.  Você deve garantir que haja espaço
@@ -33,7 +27,7 @@ static inline bool point_addtoset(Point *set, int size, const Point a)
     for (i = 0; !exists && i < size; i++)
         exists = pointcmp(set[i], a);
     if (!exists)
-        pointcpy(&set[i], &a);
+        set[i] = a;
     return !exists;
 }
 

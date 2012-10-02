@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "algorithm.h"
 #include "input.h"
 #include "../benchmark.h"
@@ -8,7 +9,18 @@
 
 struct benchmark *bm;
 struct input *input;
+Point *input_array; /* Sorted input. */
 long isize;
+
+static void init_input_array(void)
+{
+    input_array = malloc(isize * sizeof(Point));
+    if (input_array == NULL) {
+        fprintf(stderr, "Não há espaço na memória para a entrada.\n");
+        exit(EXIT_FAILURE);
+    }
+    input_to_sorted_array(input, input_array);
+}
 
 static void do_run(const char *name, 
     void (*algorithm)(const struct input *, const int))
@@ -36,13 +48,16 @@ int main()
 {
     input = input_read();
     isize = input_size(input);
+    init_input_array();
     bm_init(&bm);
 
     do_run("Força bruta n⁴", brute_force);
     do_run("Força bruta n³", brute_force_by_edges);
+    do_run("Gift wrapping ", gift_wrapping);
 
     bm_free(&bm);
     input_free(input);
-    return 0;
+    free(input_array);
+    return EXIT_SUCCESS;
 }
 
