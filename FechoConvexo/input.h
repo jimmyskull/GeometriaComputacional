@@ -19,11 +19,6 @@ struct input {
  */
 extern struct input *input_read(void);
 
-/* Converte uma lista encadeada para um vetor de Point ordenado.
- * Você precisa certificar que existe memória alocada suficiente
- * para a conversão. */
-extern void input_to_sorted_array(const struct input *, Point *);
-
 /* Libera a lista de pontos da memória. */
 extern void input_free(struct input *);
 

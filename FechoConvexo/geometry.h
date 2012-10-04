@@ -10,9 +10,9 @@ struct Point2i {
 
 typedef struct Point2i Point;
 
-static inline bool pointcmp(const Point a, const Point b)
+static inline int pointcmp(const Point a, const Point b)
 {
-    return (a.X == b.X) && (a.Y == b.Y);
+    return b.Y - a.Y? : b.X - a.X;
 }
 
 /* Adiciona o ponto |a| ao conjunto |set| se ele ainda não existe,
@@ -25,7 +25,7 @@ static inline bool point_addtoset(Point *set, int size, const Point a)
     int i;
 
     for (i = 0; !exists && i < size; i++)
-        exists = pointcmp(set[i], a);
+        exists = pointcmp(set[i], a) == 0;
     if (!exists)
         set[i] = a;
     return !exists;
@@ -142,6 +142,10 @@ static inline bool diagonal(const int i, const int j, const int n,
 }
 
 /* Círculo formado por a, b e c.
+ *                          |ax    ay   ax² + ay²   1|
+ *  in_circle(a,b,c,d) = det|bx    by   bx² + by²   1|
+ *                          |cx    cy   cx² + cy²   1|
+ *                          |dx    dy   dx² + dy²   1|
  * in_circle == 0  se d está no círculo.
  * in_circle >  0  se d está fora do círculo.
  * in_circle <  0  se d está dentro de círculo.
@@ -149,18 +153,18 @@ static inline bool diagonal(const int i, const int j, const int n,
 static inline int in_circle(const Point a, const Point b, const Point c,
     const Point d)
 {
-    (void) (a);
-    (void) (b);
-    (void) (c);
-    (void) (d);
-    /*                          |1ax    ay      ax² + ay²|
-     *  in_circle(a,b,c,d) = det|1bx    by      bx² + by²|
-     *                          |1cx    cy      cx² + cy²|
-     *                          |1dx    dy      dx² + dy²|
-     */
-    return 0;
+#define paraboloid(a) (a.X * a.X + a.Y * a.Y)
+    return 
+        (+1) * paraboloid(a) * ((b.X * c.Y) + (b.Y * 1 * d.X) + (1 * c.X * d.Y)
+                             -  (d.X * c.Y) - (d.Y * 1 * b.X) - (1 * c.X * b.Y))
+      + (-1) * paraboloid(b) * ((a.X * c.Y) + (a.Y * 1 * d.X) + (1 * c.X * d.Y)
+                             -  (d.X * c.Y) - (d.Y * 1 * a.X) - (1 * c.X * a.Y))
+      + (+1) * paraboloid(c) * ((a.X * b.Y) + (a.Y * 1 * d.X) + (1 * b.X * d.Y)
+                             -  (d.X * b.Y) - (d.Y * 1 * a.X) - (1 * b.X * a.Y))
+      + (-1) * paraboloid(d) * ((a.X * b.Y) + (a.Y * 1 * c.X) + (1 * b.X * c.Y)
+                             -  (c.X * b.Y) - (c.Y * 1 * a.X) - (1 * b.X * a.Y));
+#undef paraboloid
 }
-
 
 #endif /* __GEOMETRY_H__ */
 

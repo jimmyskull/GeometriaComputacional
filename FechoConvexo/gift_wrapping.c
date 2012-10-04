@@ -18,14 +18,14 @@ void gift_wrapping(const struct input *input, const int size)
         i = i->next;
     }
 
-    endpt = pointcmp(input->value, pt)? input->next->value: input->value;
+    endpt = pointcmp(input->value, pt) == 0? input->next->value: input->value;
     do {
         hull[chull++] = pt;
         for (t = input; t != NULL; t = t->next)
-            if (pointcmp(endpt, pt) || !lefton(pt, endpt, t->value))
+            if (pointcmp(endpt, pt) == 0 || !lefton(pt, endpt, t->value))
                 endpt = t->value;
         pt = endpt;
-    } while (!pointcmp(endpt, hull[0]));
+    } while (pointcmp(endpt, hull[0]) != 0);
 
 #ifndef NDEBUG
     long id;

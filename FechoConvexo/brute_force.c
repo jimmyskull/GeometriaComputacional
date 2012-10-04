@@ -5,7 +5,7 @@
 #include "geometry.h"
 #include "input.h"
 
-#define CMP(a,b) pointcmp(a->value, b->value)
+#define CMP(a,b) (pointcmp(a->value, b->value) == 0)
 #define LEFTON(a,b,c) lefton(a->value, b->value, c->value)
 
 void brute_force(const struct input *input, const int size)
@@ -28,7 +28,7 @@ void brute_force(const struct input *input, const int size)
                         bool found = false;
 
                         for (c = 0; !found && c < dcount; c++)
-                            found = pointcmp(discarded[c], l->value);
+                            found = pointcmp(discarded[c], l->value) == 0;
                         if (!found) 
                             discarded[dcount++] = l->value;
                     }
@@ -43,7 +43,7 @@ void brute_force(const struct input *input, const int size)
         bool found = false;
 
         for (c = 0; !found && c < dcount; c++)
-            found = pointcmp(discarded[c], input->value);
+            found = pointcmp(discarded[c], input->value) == 0;
         if (!found) 
             hull[chull++] = input->value;
         input = input->next;
