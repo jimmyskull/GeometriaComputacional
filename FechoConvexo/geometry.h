@@ -154,15 +154,14 @@ static inline int in_circle(const Point a, const Point b, const Point c,
     const Point d)
 {
 #define paraboloid(a) (a.X * a.X + a.Y * a.Y)
-    return 
-        (+1) * paraboloid(a) * ((b.X * c.Y) + (b.Y * 1 * d.X) + (1 * c.X * d.Y)
-                             -  (d.X * c.Y) - (d.Y * 1 * b.X) - (1 * c.X * b.Y))
-      + (-1) * paraboloid(b) * ((a.X * c.Y) + (a.Y * 1 * d.X) + (1 * c.X * d.Y)
-                             -  (d.X * c.Y) - (d.Y * 1 * a.X) - (1 * c.X * a.Y))
-      + (+1) * paraboloid(c) * ((a.X * b.Y) + (a.Y * 1 * d.X) + (1 * b.X * d.Y)
-                             -  (d.X * b.Y) - (d.Y * 1 * a.X) - (1 * b.X * a.Y))
-      + (-1) * paraboloid(d) * ((a.X * b.Y) + (a.Y * 1 * c.X) + (1 * b.X * c.Y)
-                             -  (c.X * b.Y) - (c.Y * 1 * a.X) - (1 * b.X * a.Y));
+    return     paraboloid(a) * (b.X * c.Y + b.Y * d.X + c.X * d.Y
+                             -  d.X * c.Y - d.Y * b.X - c.X * b.Y)
+      + (-1) * paraboloid(b) * (a.X * c.Y + a.Y * d.X + c.X * d.Y
+                             -  d.X * c.Y - d.Y * a.X - c.X * a.Y)
+      +        paraboloid(c) * (a.X * b.Y + a.Y * d.X + b.X * d.Y
+                             -  d.X * b.Y - d.Y * a.X - b.X * a.Y)
+      + (-1) * paraboloid(d) * (a.X * b.Y + a.Y * c.X + b.X * c.Y
+                             -  c.X * b.Y - c.Y * a.X - b.X * a.Y);
 #undef paraboloid
 }
 
